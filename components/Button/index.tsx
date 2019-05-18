@@ -26,7 +26,7 @@ const defaultProps = {
 
 const Button = (props: Props) => {
     return (
-        <ButtonStyled {...props} >
+        <ButtonStyled {...props}>
             <ChildrenWrapper>{props.children}</ChildrenWrapper>
         </ButtonStyled>
     )

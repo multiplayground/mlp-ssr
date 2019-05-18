@@ -2,12 +2,12 @@ This project was bootstrapped with [Create Next App](https://github.com/segmenti
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [Folder Structure](#folder-structure)
-- [Available Scripts](#available-scripts)
-  - [`npm run dev`](#npm-run-dev)
-  - [`npm run build`](#npm-run-build)
-  - [`npm run start`](#npm-run-start)
+-   [Table of Contents](#table-of-contents)
+-   [Folder Structure](#folder-structure)
+-   [Available Scripts](#available-scripts)
+    -   [`npm run dev`](#npm-run-dev)
+    -   [`npm run build`](#npm-run-build)
+    -   [`npm run start`](#npm-run-start)
 
 ## Folder Structure
 
@@ -35,7 +35,6 @@ In the project directory, you can run:
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
 
 ### `npm run build`
 

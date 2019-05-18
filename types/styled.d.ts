@@ -24,12 +24,12 @@ declare module 'styled-components' {
     }
 
     export interface TypographyAttr {
-        fontWeight: number,
-        fontSize: number,
-        letterSpacing: number,
-        lineHeight: number,
-        fontFamily: string,
-        tag: string,
+        fontWeight: number
+        fontSize: number
+        letterSpacing: number
+        lineHeight: number
+        fontFamily: string
+        tag: string
     }
 
     export interface Typography {
@@ -64,11 +64,11 @@ declare module 'styled-components' {
     export interface DefaultTheme {
         palette: ThemeIndex
         paletteOn: ThemeIndex
-        extra: ThemeIndex,
-        extraOn: ThemeIndex,
-        extraLight: ThemeIndex,
-        extraShadow: ThemeIndex,
-        typography: ThemeIndex,
+        extra: ThemeIndex
+        extraOn: ThemeIndex
+        extraLight: ThemeIndex
+        extraShadow: ThemeIndex
+        typography: ThemeIndex
         zIndex: ThemeIndex
         [x: string]: any
     }

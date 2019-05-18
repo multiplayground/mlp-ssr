@@ -6,20 +6,20 @@ import Layout from '../../layouts/main'
 import { dogStore } from '../../store/sandbox/dogs'
 
 export default () => {
-  const dog = useStore(dogStore)
+    const dog = useStore(dogStore)
 
-  useEffect(() => {
-    getDogHandler()
-  }, [])
+    useEffect(() => {
+        getDogHandler()
+    }, [])
 
-  const getDogHandler = async () => {
-    await getRandomDog({ id: 2 })
-  }
+    const getDogHandler = async () => {
+        await getRandomDog({ id: 2 })
+    }
 
-  return (
-    <Layout>
-      <button onClick={getDogHandler}>get dog</button>
-      <img src={dog} height="200px" />
-    </Layout>
-  )
+    return (
+        <Layout>
+            <button onClick={getDogHandler}>get dog</button>
+            <img src={dog} height="200px" />
+        </Layout>
+    )
 }

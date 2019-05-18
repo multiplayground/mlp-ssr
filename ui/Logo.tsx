@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export default () => (
     <Wrapper>
-        <Link href='/'>
+        <Link href="/">
             <a>MLP</a>
         </Link>
     </Wrapper>
@@ -12,7 +12,7 @@ export default () => (
 const Wrapper = styled.div`
     display: flex;
     align-items: center;
-    
+
     a {
         text-decoration: none;
         font-family: 'Roboto Condensed', sans-serif;

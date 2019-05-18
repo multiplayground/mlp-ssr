@@ -4,30 +4,31 @@ import Button from '../components/Button'
 
 export default () => (
     <Wrapper>
-        <Link href='/'>
+        <Link href="/">
             <a>Главная</a>
         </Link>
-        <Link href='/goals'>
+        <Link href="/goals">
             <a>Цели</a>
         </Link>
-        <Link href='/contitions'>
+        <Link href="/contitions">
             <a>Условия</a>
         </Link>
-        <Link href='/projects'>
+        <Link href="/projects">
             <a>Проекты</a>
         </Link>
         <Auth>
-            <Button color="white" size="small" roundCorner>Вход</Button>
+            <Button color="white" size="small" roundCorner>
+                Вход
+            </Button>
         </Auth>
     </Wrapper>
 )
 
-
 const activeLink = css`
     :hover::after {
-        content: "";
+        content: '';
         display: block;
-        margin-bottom: -2px; 
+        margin-bottom: -2px;
         border-bottom: 2px solid white;
     }
 `
@@ -35,7 +36,7 @@ const activeLink = css`
 const Wrapper = styled.div`
     display: flex;
     align-items: center;
-    
+
     a {
         text-decoration: none;
         font-family: 'Roboto Condensed', sans-serif;

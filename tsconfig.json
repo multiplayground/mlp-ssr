@@ -3,11 +3,7 @@
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
         "jsx": "preserve",
-        "lib": [
-            "es2017",
-            "dom",
-            "esnext"
-        ],
+        "lib": ["es2017", "dom", "esnext"],
         "module": "esnext",
         "moduleResolution": "node",
         "noEmit": true,
@@ -19,7 +15,7 @@
         "sourceMap": true,
         "strict": true,
         "target": "esnext",
-        "baseUrl": ".",
+        "baseUrl": "."
     },
     "include": [
         "components/**/*",
@@ -27,9 +23,9 @@
         "pages/**/*",
         "theme/*",
         "api/**/*",
-        "types/*", 
-        "store/**/*", 
-        "ui/**/*",
+        "types/*",
+        "store/**/*",
+        "ui/**/*"
     ],
     "exclude": [
         "node_modules",

@@ -12,25 +12,39 @@ const Home = (props: Props) => {
         return {
             key: item.slug,
             name: item.title,
-            stack: item.technologies && item.technologies.map((tech: any) => tech.title).join(', '),
+            stack:
+                item.technologies &&
+                item.technologies.map((tech: any) => tech.title).join(', '),
         }
     })
 
     return (
         <Wrapper>
             <GreatingWrapper>
-                <Text variant="body1" color="primary">Начни карьеру разработчика</Text>
-                <Text variant="h4" color="primary">Обучение программированию через практику</Text>
-                <Text variant="body2" color="primary">Те кто работает остаются в проекте, остальные вылетают</Text>
+                <Text variant="body1" color="primary">
+                    Начни карьеру разработчика
+                </Text>
+                <Text variant="h4" color="primary">
+                    Обучение программированию через практику
+                </Text>
+                <Text variant="body2" color="primary">
+                    Те кто работает остаются в проекте, остальные вылетают
+                </Text>
                 <BtnWrapper>
-                    <Button color="info" size="large" roundCorner>Начать</Button>
-                    <Button color="white" size="large" roundCorner>Условия</Button>
+                    <Button color="info" size="large" roundCorner>
+                        Начать
+                    </Button>
+                    <Button color="white" size="large" roundCorner>
+                        Условия
+                    </Button>
                 </BtnWrapper>
             </GreatingWrapper>
             <TilesWrapper>
-                {projects.map((item: any) => <ProjectTile {...item} />)}
+                {projects.map((item: any) => (
+                    <ProjectTile {...item} />
+                ))}
             </TilesWrapper>
-        </Wrapper >
+        </Wrapper>
     )
 }
 
@@ -72,16 +86,16 @@ const TilesWrapper = styled.div`
     margin-top: 20px;
     z-index: 1;
     transform: translateX(80px);
-    
+
     & > div {
         margin-bottom: 25px;
     }
 
-    &  > div:nth-child(-n+2) {
+    & > div:nth-child(-n + 2) {
         transform: translateY(120px);
     }
 
-    &  > div:nth-child(n+3) {
+    & > div:nth-child(n + 3) {
         transform: translateY(50px);
     }
 `

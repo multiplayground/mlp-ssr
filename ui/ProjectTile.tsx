@@ -2,16 +2,16 @@ import styled from 'styled-components'
 import Text from '../components/Text'
 
 export type Props = {
-    name?: string,
-    stack?: string,
-    preview?: string,
+    name?: string
+    stack?: string
+    preview?: string
 }
 
 const defaultProps = {
     name: 'Discord Bot',
     stack: 'PHP, LIVIA, CI, CD',
     preview: '/static/images/project-1.png',
-};
+}
 
 const ProjectTile = (props: Props) => {
     const { name, stack, preview } = props
@@ -21,8 +21,17 @@ const ProjectTile = (props: Props) => {
             <ImageBox>
                 <img src={preview} />
                 <Title>
-                    <Text variant="h6" align="right" fontWeight="bold">{name}</Text>
-                    <Text variant="h6" align="right" colorBase="palette" color="error">{stack}</Text>
+                    <Text variant="h6" align="right" fontWeight="bold">
+                        {name}
+                    </Text>
+                    <Text
+                        variant="h6"
+                        align="right"
+                        colorBase="palette"
+                        color="error"
+                    >
+                        {stack}
+                    </Text>
                 </Title>
             </ImageBox>
         </Wrapper>

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { ReactNode } from 'react';
+import { ReactNode } from 'react'
 import styled from 'styled-components'
 import NavPanel from '../ui/NavPanel'
 import Logo from '../ui/Logo'
@@ -12,10 +12,16 @@ export default (props: Props) => (
     <Background>
         <Head>
             <title>MLP</title>
-            <meta charSet='utf-8' />
-            <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+            <meta charSet="utf-8" />
+            <meta
+                name="viewport"
+                content="initial-scale=1.0, width=device-width"
+            />
             <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
-            <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Roboto+Condensed:400,700|Roboto+Mono:300,400,700&amp;subset=cyrillic" rel="stylesheet"></link>
+            <link
+                href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Roboto+Condensed:400,700|Roboto+Mono:300,400,700&amp;subset=cyrillic"
+                rel="stylesheet"
+            />
         </Head>
         <BodyBox>
             <MainContent>
@@ -33,7 +39,7 @@ const Background = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #48BBFF;
+    background-color: #48bbff;
 `
 
 const Header = styled.header`
@@ -51,11 +57,11 @@ const BodyBox = styled.div`
 
 const MainContent = styled.section`
     position: relative;
-    background-color: #9948FF;
+    background-color: #9948ff;
     padding: 1px;
     margin-top: 60px;
     height: 875px;
-    
+
     :after {
         content: '';
         position: absolute;
@@ -63,6 +69,6 @@ const MainContent = styled.section`
         right: 0;
         left: 0;
         border-top: 80px solid transparent;
-        border-right: 1120px solid #48BBFF;
+        border-right: 1120px solid #48bbff;
     }
 `
