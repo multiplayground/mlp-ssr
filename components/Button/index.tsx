@@ -13,7 +13,7 @@ export type Props = {
     visibility?: boolean
     spinned?: boolean
     icon?: any | null
-    children?: any
+    children?: React.ReactNode
     roundCorner?: boolean
 }
 
