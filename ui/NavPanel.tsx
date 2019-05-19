@@ -10,7 +10,7 @@ export default () => (
         <Link href="/goals">
             <a>Цели</a>
         </Link>
-        <Link href="/contitions">
+        <Link href="/conditions">
             <a>Условия</a>
         </Link>
         <Link href="/projects">
