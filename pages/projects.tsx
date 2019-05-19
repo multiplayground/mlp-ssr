@@ -1,8 +1,9 @@
 import Layout from '../layouts/main'
+import Projects from '../ui/Projects'
 
 const ProjectsPage = () => (
     <Layout>
-        <div style={{ minHeight: '800px' }}>Projects Page</div>
+        <Projects />
     </Layout>
 )
 
