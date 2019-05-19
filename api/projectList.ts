@@ -23,14 +23,14 @@ export interface IProjectList {
     results: Array<IProject>
 }
 
-export interface IProjectReqParams {
+export interface IProjectListReq {
     limit?: number
     offset?: number
 }
 
 export const getProjectList = createEffect<{}, IProjectList, {}>(
     'get project list'
-).use(async (params: IProjectReqParams) => {
+).use(async (params: IProjectListReq) => {
     const urlParams = new URLSearchParams(Object.entries(params))
     const res = await fetch(
         `http://157.230.108.47/api/v1/project${'?' + urlParams}`

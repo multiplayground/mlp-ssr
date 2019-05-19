@@ -4,11 +4,11 @@ import Text from '../components/Text'
 import ProjectTile from './ProjectTile'
 
 export type Props = {
-    projects: Array<any>
+    projectList: Array<any>
 }
 
 const Home = (props: Props) => {
-    const projects = props.projects.map((item: any) => {
+    const projectList = props.projectList.map((item: any) => {
         return {
             key: item.slug,
             name: item.title,
@@ -40,7 +40,7 @@ const Home = (props: Props) => {
                 </BtnWrapper>
             </GreatingWrapper>
             <TilesWrapper>
-                {projects.map((item: any) => (
+                {projectList.map((item: any) => (
                     <ProjectTile {...item} />
                 ))}
             </TilesWrapper>

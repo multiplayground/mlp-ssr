@@ -1,5 +1,5 @@
 import { createStore } from 'effector'
-import { getProjectList, IProjectList } from '../api/progectList'
+import { getProjectList, IProjectList } from '../api/projectList'
 import produce from 'immer'
 
 type IInitialState = {

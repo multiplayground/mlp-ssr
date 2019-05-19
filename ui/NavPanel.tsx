@@ -13,7 +13,7 @@ export default () => (
         <Link href="/conditions">
             <a>Условия</a>
         </Link>
-        <Link href="/projects">
+        <Link href="/project-list">
             <a>Проекты</a>
         </Link>
         <Auth>

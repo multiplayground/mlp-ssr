@@ -2,12 +2,12 @@ import { useStore } from 'effector-react'
 import { useEffect } from 'react'
 import styled from 'styled-components'
 
-import { IProject, IProjectReqParams, getProjectList } from '../api/progectList'
+import { IProject, IProjectListReq, getProjectList } from '../api/projectList'
 import Table from '../components/Table'
-import { projectListStore } from '../store/projects'
+import { projectListStore } from '../store/projectList'
 import Paginator from '../components/Paginator'
 
-const ProjectTile = () => {
+const ProjectList = () => {
     const { result, loading, offset, limit } = useStore(projectListStore)
 
     useEffect(() => {
@@ -36,13 +36,11 @@ const ProjectTile = () => {
         },
     ]
 
-    const getProjectListHandler = async (params: IProjectReqParams) => {
+    const getProjectListHandler = async (params: IProjectListReq) => {
         await getProjectList(params)
     }
 
     const { results, count } = result
-
-    console.log(results)
 
     return (
         <Wrapper>
@@ -58,6 +56,6 @@ const ProjectTile = () => {
     )
 }
 
-export default ProjectTile
+export default ProjectList
 
 const Wrapper = styled.div``

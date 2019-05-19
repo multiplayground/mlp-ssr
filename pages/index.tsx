@@ -3,12 +3,12 @@ import Home from '../ui/Home'
 import unfetch from 'isomorphic-unfetch'
 
 export type Props = {
-    projects: Array<any>
+    projectList: Array<any>
 }
 
-const HomePage = ({ projects }: Props) => (
+const HomePage = ({ projectList }: Props) => (
     <Layout>
-        <Home projects={projects} />
+        <Home projectList={projectList} />
     </Layout>
 )
 
@@ -18,7 +18,7 @@ HomePage.getInitialProps = async () => {
     })
 
     const json = await res.json()
-    return { projects: json.results }
+    return { projectList: json.results }
 }
 
 export default HomePage
