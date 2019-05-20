@@ -2,7 +2,7 @@ import App, { Container, NextAppContext } from 'next/app'
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import theme from '../theme/base'
-import './global.scss'
+import '../theme/global.scss'
 
 export default class MyApp extends App {
     static async getInitialProps({ Component, ctx }: NextAppContext) {
