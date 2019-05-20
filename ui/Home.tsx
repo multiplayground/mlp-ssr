@@ -2,13 +2,10 @@ import styled from 'styled-components'
 import Button from '../components/Button'
 import Text from '../components/Text'
 import ProjectTile from './ProjectTile'
+import { IProjectList } from '../api/projectList'
 
-export type Props = {
-    projectList: Array<any>
-}
-
-const Home = (props: Props) => {
-    const projectList = props.projectList.map((item: any) => {
+const Home = (props: IProjectList) => {
+    const projectList = props.results.map((item: any) => {
         return {
             key: item.slug,
             name: item.title,

@@ -5,18 +5,14 @@ import PeopleSvg from '@material-ui/icons/People'
 
 import { IProject } from '../api/project'
 
-export type Props = {
-    data: IProject
-}
-
-const Project = (props: Props) => {
+const Project = (props: IProject) => {
     const {
         title,
         full_description,
         preview,
         number_of_people,
         technologies,
-    } = props.data
+    } = props
 
     const previewProps = {
         name: title,
