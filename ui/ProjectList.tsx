@@ -27,7 +27,7 @@ const ProjectList = () => {
     }
 
     const rowClickHandle = (row: IProject) => {
-        Router.push(`/project/${row.slug}`)
+        Router.push({ pathname: `/project`, query: { slug: row.slug } })
     }
 
     const projectColumns = [
