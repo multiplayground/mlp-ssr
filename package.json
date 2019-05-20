@@ -1,15 +1,18 @@
 {
     "name": "create-next-example-app",
     "scripts": {
-        "dev": "concurrently \"next\" \"npm run prettier-watch\"",
+        "dev": "concurrently \"node server.ts\" \"npm run prettier-watch\"",
         "build": "next build",
-        "start": "next start",
+        "start": "NODE_ENV=production node server.js",
         "prettier-watch": "onchange \"**/*.(js|jsx|ts|tsx|css|scss)\" -- prettier --write {{changed}}"
     },
     "dependencies": {
+        "@material-ui/core": "^3.9.3",
+        "@material-ui/icons": "^3.0.2",
         "classnames": "^2.2.6",
         "effector": "^0.18.7",
         "effector-react": "^0.18.10",
+        "express": "^4.17.0",
         "immer": "^3.1.1",
         "isomorphic-unfetch": "^3.0.0",
         "next": "^8.1.0",
@@ -28,6 +31,7 @@
     },
     "devDependencies": {
         "@types/classnames": "^2.2.7",
+        "@types/material-ui": "^0.21.6",
         "@types/next": "^8.0.5",
         "@types/node": "^12.0.0",
         "@types/react": "^16.8.16",
