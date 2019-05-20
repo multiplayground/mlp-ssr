@@ -2,15 +2,15 @@ import styled from 'styled-components'
 import Text from '../components/Text'
 
 export type Props = {
-    name?: string
-    stack?: string
-    preview?: string
+    name: string
+    stack: string
+    preview: string
 }
 
 const defaultProps = {
     name: 'Discord Bot',
     stack: 'PHP, LIVIA, CI, CD',
-    preview: '/static/images/project-1.png',
+    preview: '/static/images/none-png-8.png',
 }
 
 const ProjectTile = (props: Props) => {

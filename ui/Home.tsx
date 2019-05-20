@@ -12,6 +12,7 @@ const Home = (props: Props) => {
         return {
             key: item.slug,
             name: item.title,
+            preview: item.preview || undefined,
             stack:
                 item.technologies &&
                 item.technologies.map((tech: any) => tech.title).join(', '),
