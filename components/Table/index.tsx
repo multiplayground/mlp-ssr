@@ -73,7 +73,6 @@ const baseTd = css`
     position: relative;
     border-bottom: none;
     vertical-align: middle;
-    font-weight: 300;
 `
 const base = css`
     width: 100%;
@@ -82,9 +81,9 @@ const base = css`
     
     thead td {
         ${baseTd}
-        font-size: ${props => props.theme.typography.body1.fontSize}rem;
-        font-family: ${props => props.theme.typography.body1.fontFamily};
-        line-height:  ${props => props.theme.typography.body1.lineHeight};
+        font-size: ${props => props.theme.typography.body2.fontSize}rem;
+        font-family: ${props => props.theme.typography.body2.fontFamily};
+        line-height:  ${props => props.theme.typography.body2.lineHeight};
     }
 
     tbody td {
@@ -92,7 +91,6 @@ const base = css`
         font-size: ${props => props.theme.typography.body2.fontSize}rem;
         font-family: ${props => props.theme.typography.body2.fontFamily};
         line-height:  ${props => props.theme.typography.body2.lineHeight};
-        border-top: 1px solid #ddd;
     }
 `
 

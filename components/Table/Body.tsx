@@ -8,11 +8,6 @@ export type Props = {
     defaultRow?: number
 }
 
-export type IRowProps = {
-    active: boolean
-    hovered: boolean
-}
-
 const defaultProps = {
     data: Array(),
     columns: Array(),
@@ -55,17 +50,9 @@ Body.defaultProps = defaultProps
 export default React.memo(Body)
 
 const active = css`
-    background-color: hsl(258, 49%, 93%);
+    background-color: #ecf8ff;
 `
 
-const hoveredRow = css`
-    cursor: pointer;
-
-    :hover {
-        background-color: hsl(258, 49%, 93%);
-    }
-`
-const RowStyled = styled.tr<IRowProps>`
+const RowStyled = styled.tr<{ active: boolean; hovered: boolean }>`
     ${props => props.active && active}
-    ${props => props.hovered && hoveredRow}
 `

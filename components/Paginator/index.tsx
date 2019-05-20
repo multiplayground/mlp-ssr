@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export type Props = {
     totalRecords: number
@@ -153,7 +153,7 @@ const Paginator = (props: Props) => {
         }
     }
 
-    return <Wrapper>{range.map(pageIndex => renderButton(pageIndex))}</Wrapper>
+    return <>{range.map(pageIndex => renderButton(pageIndex))}</>
 }
 
 Paginator.defaultProps = defaultProps
@@ -165,13 +165,13 @@ type IButtonStyled = {
     active?: boolean
 }
 
-const ButtonStyled = styled.button<IButtonStyled>`
-    padding: 10px 15px;
-    margin: 3px;
-    display: ${props => (props.invisible ? 'none' : 'block')};
-    box-sizing: border-box;
+const hide = css`
+    display: 'none';
 `
-
-const Wrapper = styled.div`
-    display: flex;
+const active = css`
+    margin-top: 7px;
+`
+const ButtonStyled = styled.button<IButtonStyled>`
+    ${props => props.invisible && hide}
+    ${props => props.active && active}
 `
