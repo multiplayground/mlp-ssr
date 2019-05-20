@@ -1,24 +1,16 @@
 import Layout from '../layouts/main'
 import Home from '../ui/Home'
-import unfetch from 'isomorphic-unfetch'
+import { getProjectList, IProjectList } from '../api/projectList'
 
-export type Props = {
-    projectList: Array<any>
-}
-
-const HomePage = ({ projectList }: Props) => (
+const HomePage = (props: IProjectList) => (
     <Layout>
-        <Home projectList={projectList} />
+        <Home {...props} />
     </Layout>
 )
 
 HomePage.getInitialProps = async () => {
-    const res = await unfetch('http://157.230.108.47/api/v1/project', {
-        method: 'GET',
-    })
-
-    const json = await res.json()
-    return { projectList: json.results }
+    const data = await getProjectList({ limit: 4 })
+    return data
 }
 
 export default HomePage
