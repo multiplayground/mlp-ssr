@@ -1,20 +1,5 @@
 import { createEffect } from 'effector'
-
-export interface IProject {
-    id: number
-    status: object
-    technologies: Array<object>
-    title: string
-    slug: string
-    preview: string
-    short_description: string
-    full_description: string
-    number_of_people: number
-    date_of_created: string
-    date_of_updted: string
-    date_of_end: string
-    is_active: boolean
-}
+import { IProject } from './project'
 
 export interface IProjectList {
     count: number

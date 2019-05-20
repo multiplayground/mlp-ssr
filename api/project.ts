@@ -20,12 +20,12 @@ export interface IProjectReq {
     slug?: number
 }
 
-export const getProject = createEffect<{}, IProject, {}>(
-    'get project list'
-).use(async (params: IProjectReq) => {
-    const res = await fetch(
-        `http://157.230.108.47/api/v1/project/${params.slug}`
-    )
-    const data = await res.json()
-    return data
-})
+export const getProject = createEffect<{}, IProject, {}>('get project').use(
+    async (params: IProjectReq) => {
+        const res = await fetch(
+            `http://157.230.108.47/api/v1/project/${params.slug}`
+        )
+        const data = await res.json()
+        return data
+    }
+)
