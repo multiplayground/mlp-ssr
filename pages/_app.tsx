@@ -3,6 +3,7 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import theme from '../theme/base'
 import '../theme/global.scss'
+import 'isomorphic-unfetch'
 
 export default class MyApp extends App {
     static async getInitialProps({ Component, ctx }: NextAppContext) {
