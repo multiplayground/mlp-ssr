@@ -12,7 +12,7 @@ type IInitialState = {
 const InitialState: IInitialState = {
     loading: false,
     offset: 0,
-    limit: 10,
+    limit: 7,
     result: Object(),
 }
 
