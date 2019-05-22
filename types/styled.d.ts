@@ -1,6 +1,6 @@
 import 'styled-components'
 
-declare module 'styled-components' {
+declare global {
     export interface PaletteBase {
         primary: string
         secondary: string
@@ -56,7 +56,9 @@ declare module 'styled-components' {
         tooltip: number
         modalOverlay: number
     }
+}
 
+declare module 'styled-components' {
     export interface DefaultTheme {
         palette: PaletteBase
         paletteOn: PaletteBase

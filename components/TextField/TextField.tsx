@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled, { PaletteExtra } from 'styled-components'
+import styled from 'styled-components'
 
 export type Props = {
     value: string | number

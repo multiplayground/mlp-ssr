@@ -1,6 +1,5 @@
 import React from 'react'
 import { ButtonStyled } from './styled'
-import { PaletteBase, PaletteExtra } from 'styled-components'
 
 export type Props = {
     variant: 'text' | 'outlined' | 'contained'

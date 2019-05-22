@@ -1,5 +1,3 @@
-import { Typography } from 'styled-components'
-
 export const FontFamily1 = "'Roboto', sans-serif"
 export const FontFamily2 = "'Roboto Condensed', sans-serif"
 export const FontFamily3 = "'Lato', sans-serif"

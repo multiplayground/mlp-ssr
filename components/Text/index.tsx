@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { Typography, PaletteBase, css } from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export type Props = {
     color: keyof PaletteBase
