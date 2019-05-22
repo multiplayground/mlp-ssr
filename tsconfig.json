@@ -15,7 +15,8 @@
         "sourceMap": true,
         "strict": true,
         "target": "esnext",
-        "baseUrl": "."
+        "baseUrl": ".",
+        "noImplicitAny": false
     },
     "include": [
         "components/**/*",
