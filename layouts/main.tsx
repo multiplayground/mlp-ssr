@@ -61,6 +61,7 @@ const MainContent = styled.section`
     padding: 1px;
     margin-top: 60px;
     height: 875px;
+    z-index: 0;
 
     :after {
         content: '';
@@ -70,5 +71,6 @@ const MainContent = styled.section`
         left: 0;
         border-top: 80px solid transparent;
         border-right: 1120px solid #48bbff;
+        z-index: -1;
     }
 `

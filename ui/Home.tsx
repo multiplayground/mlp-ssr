@@ -82,7 +82,6 @@ const TilesWrapper = styled.div`
     width: 600px;
     height: 800px;
     margin-top: 20px;
-    z-index: 1;
     transform: translateX(80px);
 
     & > div {
