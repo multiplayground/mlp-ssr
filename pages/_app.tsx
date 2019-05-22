@@ -2,7 +2,7 @@ import App, { Container, NextAppContext } from 'next/app'
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import theme from '../theme/base'
-import '../theme/global.scss'
+import '../theme/bundle'
 import 'isomorphic-unfetch'
 
 export default class MyApp extends App {
