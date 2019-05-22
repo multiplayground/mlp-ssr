@@ -1,7 +1,5 @@
 import 'styled-components'
 
-// and extend them!
-
 declare module 'styled-components' {
     export interface PaletteBase {
         primary: string
@@ -46,6 +44,7 @@ declare module 'styled-components' {
         button: TypographyAttr
         caption: TypographyAttr
         overline: TypographyAttr
+        textField: TypographyAttr
     }
 
     export interface ZIndex {
@@ -55,21 +54,17 @@ declare module 'styled-components' {
         modal: number
         snackbar: number
         tooltip: number
-    }
-
-    type ThemeIndex = {
-        [x: string]: any
+        modalOverlay: number
     }
 
     export interface DefaultTheme {
-        palette: ThemeIndex
-        paletteOn: ThemeIndex
-        extra: ThemeIndex
-        extraOn: ThemeIndex
-        extraLight: ThemeIndex
-        extraShadow: ThemeIndex
-        typography: ThemeIndex
-        zIndex: ThemeIndex
-        [x: string]: any
+        palette: PaletteBase
+        paletteOn: PaletteBase
+        extra: PaletteExtra
+        extraOn: PaletteExtra
+        extraLight: PaletteExtra
+        extraShadow: PaletteExtra
+        typography: Typography
+        zIndex: ZIndex
     }
 }

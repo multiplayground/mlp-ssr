@@ -1,7 +1,7 @@
 import produce from 'immer'
 import { DefaultTheme } from 'styled-components'
 
-import typography from './typography'
+import { typography } from './typography'
 
 export const base: DefaultTheme = {
     palette: {
@@ -68,6 +68,7 @@ export const base: DefaultTheme = {
         appBar: 1100,
         drawer: 1200,
         modal: 1300,
+        modalOverlay: 1200,
         snackbar: 1400,
         tooltip: 1500,
     },

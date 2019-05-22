@@ -1,9 +1,10 @@
 import { Typography } from 'styled-components'
 
-const FontFamily1 = "'Roboto', sans-serif"
-const FontFamily2 = "'Roboto Condensed', sans-serif"
+export const FontFamily1 = "'Roboto', sans-serif"
+export const FontFamily2 = "'Roboto Condensed', sans-serif"
+export const FontFamily3 = "'Lato', sans-serif"
 
-const typography: Typography = {
+export const typography: Typography = {
     h1: {
         fontWeight: 300,
         fontSize: 6,
@@ -73,7 +74,7 @@ const typography: Typography = {
         fontSize: 1,
         letterSpacing: 0.5,
         lineHeight: 1.5,
-        fontFamily: FontFamily1,
+        fontFamily: FontFamily3,
         tag: 'p',
     },
     body2: {
@@ -81,8 +82,16 @@ const typography: Typography = {
         fontSize: 0.875,
         letterSpacing: 0.25,
         lineHeight: 1.5,
-        fontFamily: FontFamily1,
+        fontFamily: FontFamily3,
         tag: 'p',
+    },
+    textField: {
+        fontWeight: 400,
+        fontSize: 0.875,
+        letterSpacing: 0.25,
+        lineHeight: 2.6,
+        fontFamily: FontFamily3,
+        tag: 'input',
     },
     button: {
         fontWeight: 400,
@@ -109,5 +118,3 @@ const typography: Typography = {
         tag: 'span',
     },
 }
-
-export default typography
