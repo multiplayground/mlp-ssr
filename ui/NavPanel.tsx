@@ -1,28 +1,51 @@
 import Link from 'next/link'
 import styled, { css } from 'styled-components'
 import Button from '../components/Button'
+import SignUp from './SigUp'
+import { useState } from 'react'
+import Modal from '../components/Modal'
 
-export default () => (
-    <Wrapper>
-        <Link href="/">
-            <a>Главная</a>
-        </Link>
-        <Link href="/goals">
-            <a>Цели</a>
-        </Link>
-        <Link href="/conditions">
-            <a>Условия</a>
-        </Link>
-        <Link href="/project-list">
-            <a>Проекты</a>
-        </Link>
-        <Auth>
-            <Button color="white" size="small" roundCorner>
-                Вход
-            </Button>
-        </Auth>
-    </Wrapper>
-)
+export default () => {
+    const [modalOpen, setModalOpen] = useState(false)
+
+    const siginClickHandle = () => {
+        setModalOpen(true)
+    }
+
+    const onCloseHandle = () => {
+        setModalOpen(false)
+    }
+
+    return (
+        <Wrapper>
+            <Link href="/">
+                <a>Главная</a>
+            </Link>
+            <Link href="/goals">
+                <a>Цели</a>
+            </Link>
+            <Link href="/conditions">
+                <a>Условия</a>
+            </Link>
+            <Link href="/project-list">
+                <a>Проекты</a>
+            </Link>
+            <Auth>
+                <Button
+                    onClick={siginClickHandle}
+                    color="white"
+                    size="small"
+                    roundCorner
+                >
+                    Вход
+                </Button>
+            </Auth>
+            <Modal isOpen={modalOpen} onClose={onCloseHandle} top="220px">
+                <SignUp />
+            </Modal>
+        </Wrapper>
+    )
+}
 
 const activeLink = css`
     :hover::after {

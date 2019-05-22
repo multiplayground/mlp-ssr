@@ -18,7 +18,7 @@ const Home = (props: IProjectList) => {
 
     return (
         <Wrapper>
-            <GreatingWrapper>
+            <GreetingWrapper>
                 <Text variant="body1" color="primary">
                     Начни карьеру разработчика
                 </Text>
@@ -36,7 +36,7 @@ const Home = (props: IProjectList) => {
                         Условия
                     </Button>
                 </BtnWrapper>
-            </GreatingWrapper>
+            </GreetingWrapper>
             <TilesWrapper>
                 {projectList.map((item: any) => (
                     <ProjectTile {...item} />
@@ -53,7 +53,7 @@ const Wrapper = styled.div`
     flex-wrap: wrap;
 `
 
-const GreatingWrapper = styled.div`
+const GreetingWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
