@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React from 'react'
+import styled, { css } from 'styled-components'
 
 export type Props = {
-    value: string | number
-    placeholder: string
+    value?: string | number
+    placeholder?: string
     color: keyof PaletteExtra
-}
+    variant: keyof PaletteExtra
+} & React.ComponentPropsWithRef<'input'>
 
 const defaultProps = {
     value: '',
@@ -14,33 +15,24 @@ const defaultProps = {
 }
 
 export const TextField = (props: Props) => {
-    const { placeholder, value } = props
-    const [isFocused, setFocused] = useState(false)
-
-    const focusInputHandle = () => {
-        setFocused(true)
-    }
-
-    const blurInputHandle = () => {
-        setFocused(false)
-    }
-
-    const changeInputHandle = () => {}
-
-    return (
-        <Input
-            value={value}
-            placeholder={placeholder}
-            onChange={changeInputHandle}
-            onFocus={focusInputHandle}
-            onBlur={blurInputHandle}
-        />
-    )
+    return <Input {...props} />
 }
 
 TextField.defaultProps = defaultProps
 
-const Input = styled.input`
+const focused = css<Props>`
+    border: 1px solid ${props => props.theme.extra[props.color]};
+    background-color: white;
+`
+
+const variant = {
+    danger: css<Props>`
+        border: 1px solid ${props => props.theme.extra[props.variant]};
+        background-color: white;
+    `,
+}
+
+const base = css`
     font-family: ${props => props.theme.typography.textField.fontFamily};
     font-size: ${props => props.theme.typography.textField.fontSize}rem;
     font-weight: ${props => props.theme.typography.textField.fontWeight};
@@ -56,10 +48,18 @@ const Input = styled.input`
     width: 100%;
     box-sizing: border-box;
     outline: none;
-    border: none;
+    border: 1px solid transparent;
 
     ::placeholder {
         color: hsla(0, 0%, 67%, 0.7);
         opacity: 1;
     }
+    :focus {
+        ${focused}
+    }
+`
+
+const Input = styled.input`
+    ${base}
+    ${props => variant[props.variant]}
 `
