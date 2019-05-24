@@ -1,21 +1,10 @@
 import Link from 'next/link'
+import React from 'react'
 import styled, { css } from 'styled-components'
-import Button from '../components/Button'
-import SignUp from './SigUp'
-import { useState } from 'react'
-import Modal from '../components/Modal'
 
-export default () => {
-    const [modalOpen, setModalOpen] = useState(false)
+import Auth from './Auth'
 
-    const siginClickHandle = () => {
-        setModalOpen(true)
-    }
-
-    const onCloseHandle = () => {
-        setModalOpen(false)
-    }
-
+const NavPanel = () => {
     return (
         <Wrapper>
             <Link href="/">
@@ -30,22 +19,12 @@ export default () => {
             <Link href="/project-list">
                 <a>Проекты</a>
             </Link>
-            <Auth>
-                <Button
-                    onClick={siginClickHandle}
-                    color="white"
-                    size="small"
-                    roundCorner
-                >
-                    Вход
-                </Button>
-            </Auth>
-            <Modal isOpen={modalOpen} onClose={onCloseHandle} top="220px">
-                <SignUp />
-            </Modal>
+            <Auth />
         </Wrapper>
     )
 }
+
+export default NavPanel
 
 const activeLink = css`
     :hover::after {
@@ -60,7 +39,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
 
-    a {
+    & > a {
         text-decoration: none;
         font-family: 'Roboto Condensed', sans-serif;
         font-size: 14px;
@@ -73,8 +52,4 @@ const Wrapper = styled.div`
 
         ${activeLink}
     }
-`
-
-const Auth = styled.div`
-    margin-left: 40px;
 `
