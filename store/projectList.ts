@@ -2,14 +2,14 @@ import { createStore } from 'effector'
 import { getProjectList, IProjectList } from '../api/projectList'
 import produce from 'immer'
 
-type IInitialState = {
+type IProjectListState = {
     loading: boolean
     result: IProjectList
     offset: number
     limit: number
 }
 
-const InitialState: IInitialState = {
+const InitialState: IProjectListState = {
     loading: false,
     offset: 0,
     limit: 7,
