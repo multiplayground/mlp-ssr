@@ -75,10 +75,10 @@ export const base: DefaultTheme = {
 }
 
 const theme = produce(base, draftBase => {
-    draftBase.extra.default = base.extra.primary
-    draftBase.extraOn.default = base.extraOn.primary
-    draftBase.extraLight.default = base.extraLight.primary
-    draftBase.extraShadow.default = base.extraShadow.primary
+    draftBase.extra.default = base.extra.info
+    draftBase.extraOn.default = base.extraOn.info
+    draftBase.extraLight.default = base.extraLight.info
+    draftBase.extraShadow.default = base.extraShadow.info
 })
 
 export default theme
