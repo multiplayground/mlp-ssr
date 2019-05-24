@@ -1,29 +1,56 @@
-import App, { Container, NextAppContext } from 'next/app'
-import React from 'react'
-import { ThemeProvider } from 'styled-components'
-import theme from '../theme/base'
-import '../theme/bundle'
 import 'isomorphic-unfetch'
 
-export default class MyApp extends App {
-    static async getInitialProps({ Component, ctx }: NextAppContext) {
-        let pageProps = {}
+import '../theme/bundle'
 
-        if (Component.getInitialProps) {
-            pageProps = await Component.getInitialProps(ctx)
-        }
+import jwt from 'jwt-simple'
+import { NextComponentType } from 'next'
+import nextCookie from 'next-cookies'
+import { Container, NextAppContext } from 'next/app'
+import React from 'react'
+import { ThemeProvider } from 'styled-components'
 
-        return { pageProps }
+import theme from '../theme/base'
+
+type Props = {
+    user?: {
+        email: string
+        exp: number
+        login: string
+        user_id: number
+        username: string
     }
-
-    render() {
-        const { Component, pageProps } = this.props
-        return (
-            <Container>
-                <ThemeProvider theme={theme}>
-                    <Component {...pageProps} />
-                </ThemeProvider>
-            </Container>
-        )
-    }
+    pageProps: Object
+    Component: NextComponentType<any>
 }
+
+export const Auth = React.createContext<Props['user']>(Object())
+
+const MyApp = (props: Props) => {
+    const { Component, pageProps, user } = props
+
+    return (
+        <Container>
+            <ThemeProvider theme={theme}>
+                <Auth.Provider value={props.user}>
+                    <Component {...pageProps} user={user} />
+                </Auth.Provider>
+            </ThemeProvider>
+        </Container>
+    )
+}
+
+MyApp.getInitialProps = async ({ Component, ctx }: NextAppContext) => {
+    let pageProps = {}
+
+    if (Component.getInitialProps) {
+        pageProps = await Component.getInitialProps(ctx)
+    }
+
+    const { utoken } = nextCookie(ctx)
+
+    const decoded = utoken && jwt.decode(utoken, utoken.split('.')[2], true)
+
+    return { pageProps, user: decoded }
+}
+
+export default MyApp
