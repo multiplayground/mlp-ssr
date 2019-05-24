@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
 import styled, { css } from 'styled-components'
-
 import Portal from '../Portal'
 import { SimpleShift as Transition } from '../Transition/index'
 
@@ -14,6 +13,7 @@ export type Props = {
     disableEvents: boolean
     isOpen: boolean
     children?: React.ReactNode
+    selector?: string
 }
 
 const defaultProps = {
@@ -22,11 +22,12 @@ const defaultProps = {
     isOpen: false,
     onClose: Function(),
     overlay: false,
+    selector: 'modal-root',
     disableEvents: false,
 }
 
 const Modal = (props: Props) => {
-    const { isOpen, overlay, disableEvents } = props
+    const { isOpen, overlay, disableEvents, selector } = props
     const contentRef = useRef(null)
     const overlayRef = useRef(null)
 
@@ -57,7 +58,7 @@ const Modal = (props: Props) => {
     )
 
     const modal = (
-        <Portal selector="root-modal">
+        <Portal selector={selector}>
             <Transition trigger={isOpen} duration={150}>
                 {overlay ? (
                     <Overlay

@@ -15,15 +15,25 @@ const Portal = ({ selector, children }: Props) => {
 
     useEffect(() => {
         if (!document) return
-        const wrapper = document.createElement('div')
-        wrapper.setAttribute('id', selector)
+
+        let wrapper = document.querySelector(`#${selector}`)
+
+        if (!wrapper) {
+            wrapper = document.createElement('div')
+            wrapper.setAttribute('id', selector)
+        }
+
         document.body.appendChild(wrapper)
+
         const target = document.querySelector(`#${selector}`)
         setElement(target)
+
         return () => {
-            target && document.body.removeChild(target)
+            target &&
+                document.body.contains(target) &&
+                document.body.removeChild(target)
         }
-    }, [selector])
+    }, [])
 
     return element ? ReactDOM.createPortal(children, element) : null
 }
