@@ -6,6 +6,8 @@ import jwt from 'jwt-simple'
 import { NextComponentType } from 'next'
 import nextCookie from 'next-cookies'
 import { Container, NextAppContext } from 'next/app'
+import Router from 'next/router'
+import NProgress from 'nprogress'
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
@@ -22,6 +24,10 @@ type Props = {
     pageProps: Object
     Component: NextComponentType<any>
 }
+
+Router.events.on('routeChangeStart', () => NProgress.start())
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
 
 export const Auth = React.createContext<Props['user']>(Object())
 

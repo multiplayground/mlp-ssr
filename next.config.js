@@ -6,14 +6,8 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 module.exports = withSass(
     withCSS(
         withTypescript({
-            // crossOrigin: 'anonymous',
             publicRuntimeConfig: {
-                cdn_api: process.env.CDN_API
-            },
-            cssModules: true,
-            cssLoaderOptions: {
-                importLoaders: 1,
-                localIdentName: '[name]__[local]--[hash:base64:5]',
+                cdn_api: process.env.CDN_API,
             },
             webpack(config, options) {
                 // Do not run type checking twice:
