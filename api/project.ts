@@ -19,15 +19,13 @@ export interface IProject {
 }
 
 export interface IProjectReq {
-    slug?: number
+    slug?: string
 }
 
-export const getProject = createEffect<{}, IProject, {}>('get project').use(
-    async (params: IProjectReq) => {
-        const res = await fetch(
-            `${HOST}/api/v1/project/${params.slug}`
-        )
-        const data = await res.json()
-        return data
-    }
-)
+export const getProject = createEffect<IProjectReq, IProject, {}>(
+    'get project'
+).use(async (params: IProjectReq) => {
+    const res = await fetch(`${HOST}/api/v1/project/${params.slug}`)
+    const data = await res.json()
+    return data
+})

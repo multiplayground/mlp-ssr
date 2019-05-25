@@ -11,7 +11,7 @@ const ProjectPage = (props: IProject) => (
 )
 
 ProjectPage.getInitialProps = async ({ query }: NextContext) => {
-    const data = await getProject({ slug: query.slug })
+    const data = await getProject({ slug: query.slug as string })
     return data
 }
 
