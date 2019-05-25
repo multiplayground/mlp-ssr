@@ -1,6 +1,8 @@
 import { createEffect } from 'effector'
 import { IProject } from './project'
 
+import { HOST } from './config'
+
 export interface IProjectList {
     count: number
     next: string
@@ -18,7 +20,7 @@ export const getProjectList = createEffect<IProjectListReq, IProjectList, {}>(
 ).use(async params => {
     const urlParams = new URLSearchParams(Object.entries(params))
     const res = await fetch(
-        `http://157.230.108.47/api/v1/project${'?' + urlParams}`
+        `${HOST}/api/v1/project${'?' + urlParams}`
     )
     const data = await res.json()
     return data

@@ -1,5 +1,7 @@
 import { createEffect } from 'effector'
 
+import { HOST } from './config'
+
 export interface IProject {
     id: number
     status: object
@@ -23,7 +25,7 @@ export interface IProjectReq {
 export const getProject = createEffect<{}, IProject, {}>('get project').use(
     async (params: IProjectReq) => {
         const res = await fetch(
-            `http://157.230.108.47/api/v1/project/${params.slug}`
+            `${HOST}/api/v1/project/${params.slug}`
         )
         const data = await res.json()
         return data

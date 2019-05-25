@@ -1,10 +1,13 @@
 {
     "name": "create-next-example-app",
     "scripts": {
-        "dev": "concurrently \"node server.ts\" \"npm run prettier-watch\"",
+        "dev": "npm run build-rm && concurrently \"npm run start:dev\" \"npm run prettier-watch\"",
+        "start": "next build && npm run start:prod",
         "build": "next build",
-        "start": "NODE_ENV=production node server.js",
-        "prettier-watch": "onchange \"**/*.(js|jsx|ts|tsx|css|scss)\" -- prettier --write {{changed}}"
+        "build-rm": "rm -rf .next",
+        "prettier-watch": "onchange \"**/*.(js|jsx|ts|tsx|css|scss)\" -- prettier --write {{changed}}",
+        "start:dev": "./node_modules/.bin/env-cmd -f .env node server.js",
+        "start:prod": "./node_modules/.bin/env-cmd -f .env.prod node server.js"
     },
     "dependencies": {
         "@material-ui/core": "^3.9.3",
@@ -31,7 +34,12 @@
         "styled-jsx": "^3.2.1",
         "typescript": "^3.4.5",
         "typescript-styled-plugin": "^0.14.0",
-        "typings-for-css-modules-loader": "^1.7.0"
+        "typings-for-css-modules-loader": "^1.7.0",
+        "@zeit/next-typescript": "^1.1.1",
+        "@zeit/next-sass": "^1.0.1",
+        "@zeit/next-css": "^1.0.1",
+        "fork-ts-checker-webpack-plugin": "^1.3.0",
+        "babel-plugin-styled-components": "^1.10.0"
     },
     "devDependencies": {
         "@types/classnames": "^2.2.7",
@@ -44,11 +52,7 @@
         "@types/shortid": "^0.0.29",
         "@types/styled-components": "^4.1.14",
         "@types/styled-jsx": "^2.2.8",
-        "@zeit/next-css": "^1.0.1",
-        "@zeit/next-sass": "^1.0.1",
-        "@zeit/next-typescript": "^1.1.1",
-        "babel-plugin-styled-components": "^1.10.0",
         "concurrently": "^4.1.0",
-        "fork-ts-checker-webpack-plugin": "^1.3.0"
+        "env-cmd": "^9.0.1"
     }
 }

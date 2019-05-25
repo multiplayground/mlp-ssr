@@ -1,5 +1,7 @@
 import { createEffect } from 'effector'
 
+import { HOST } from './config'
+
 export interface ISignInRequest {
     login?: string
     password?: string
@@ -17,7 +19,7 @@ export const signInUser = createEffect<
     ISignInResponse,
     ISignInResponse
 >('signin user').use(async params => {
-    const response = await fetch(`http://157.230.108.47/api-token-auth/`, {
+    const response = await fetch(`${HOST}/api-token-auth/`, {
         method: 'POST',
         body: JSON.stringify(params),
         headers: {
