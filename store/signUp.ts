@@ -2,13 +2,13 @@ import { createStore } from 'effector'
 import { signUpUser } from '../api/signUp'
 import produce from 'immer'
 
-type ISignUpState = {
+type ISignUpStore = {
     loading: boolean
     result?: any
     status: 'start signup' | 'success' | 'error'
 }
 
-const InitialState: ISignUpState = {
+const InitialState: ISignUpStore = {
     loading: false,
     status: 'start signup',
 }

@@ -2,13 +2,13 @@ import { createStore } from 'effector'
 import { signInUser } from '../api/signIn'
 import produce from 'immer'
 
-type ISignInState = {
+type ISignInStore = {
     loading: boolean
     result?: any
     status: 'start signin' | 'success' | 'error'
 }
 
-const InitialState: ISignInState = {
+const InitialState: ISignInStore = {
     loading: false,
     status: 'start signin',
 }
@@ -26,10 +26,10 @@ export const signInStore = createStore(InitialState)
             draftState.result = result.data
         })
     )
-    .on(signInUser.fail, (store, { error }) => {
-        return produce(store, draftState => {
+    .on(signInUser.fail, (store, { error }) =>
+        produce(store, draftState => {
             draftState.loading = false
             draftState.result = error.data
             draftState.status = 'error'
         })
-    })
+    )
