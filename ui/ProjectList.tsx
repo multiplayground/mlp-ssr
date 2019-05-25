@@ -1,25 +1,20 @@
-import { useStore } from 'effector-react'
-import { useEffect } from 'react'
 import styled from 'styled-components'
 
 import { IProjectListReq, getProjectList } from '../api/projectList'
-import { IProject } from '../api/project'
 import Table from '../components/Table'
-import { projectListStore } from '../store/projectList'
 import Paginator from '../components/Paginator'
 import Text from '../components/Text'
 import Router from 'next/router'
+import { IProjectList } from '../api/projectList'
+import { IProject } from '../api/project'
 
-const ProjectList = () => {
-    const { result, loading, offset, limit } = useStore(projectListStore)
-
-    useEffect(() => {
-        if (!result.results) getProjectListHandler({})
-    }, [])
+const ProjectList = (props: IProjectList & IProjectListReq) => {
+    const { results, count, offset, limit } = props
 
     const pageChangeHandler = (itemIndex: number) => {
         const offset = itemIndex * limit
         getProjectListHandler({ offset, limit })
+        Router.push({ pathname: '/project-list', query: { offset, limit } })
     }
 
     const getProjectListHandler = async (params: IProjectListReq) => {
@@ -60,8 +55,6 @@ const ProjectList = () => {
         },
     ]
 
-    const { results, count } = result
-
     return (
         <Wrapper>
             <ListWrapper>
@@ -71,7 +64,6 @@ const ProjectList = () => {
                     <Table
                         data={results}
                         columns={projectColumns}
-                        loading={loading}
                         onRowClick={rowClickHandle}
                     />
                 </List>

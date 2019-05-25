@@ -2,19 +2,15 @@ import Layout from '../layouts/main'
 import Home from '../ui/Home'
 import { getProjectList, IProjectList } from '../api/projectList'
 
-type Props = {
-    projectList: IProjectList
-}
-
-const HomePage = (props: Props) => (
+const HomePage = (props: IProjectList) => (
     <Layout>
-        <Home {...props.projectList} />
+        <Home {...props} />
     </Layout>
 )
 
 HomePage.getInitialProps = async () => {
-    const projectList = await getProjectList({ limit: 4 })
-    return { projectList }
+    const data = await getProjectList({ limit: 4, offset: 0 })
+    return data
 }
 
 export default HomePage

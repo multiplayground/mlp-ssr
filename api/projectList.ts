@@ -11,17 +11,15 @@ export interface IProjectList {
 }
 
 export interface IProjectListReq {
-    limit?: number
-    offset?: number
+    limit: number
+    offset: number
 }
 
 export const getProjectList = createEffect<IProjectListReq, IProjectList, {}>(
     'get project list'
 ).use(async params => {
     const urlParams = new URLSearchParams(Object.entries(params))
-    const res = await fetch(
-        `${HOST}/api/v1/project${'?' + urlParams}`
-    )
+    const res = await fetch(`${HOST}/api/v1/project${'?' + urlParams}`)
     const data = await res.json()
     return data
 })
