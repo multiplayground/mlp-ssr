@@ -10,9 +10,6 @@ const NavPanel = () => {
             <Link href="/">
                 <a>Главная</a>
             </Link>
-            <Link href="/goals">
-                <a>Цели</a>
-            </Link>
             <Link href="/conditions">
                 <a>Условия</a>
             </Link>

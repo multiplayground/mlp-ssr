@@ -1,9 +1,10 @@
 import Layout from '../layouts/main'
+import Conditions from '../ui/Conditions'
 
-const Home = () => (
+const ConditionsPage = () => (
     <Layout>
-        <div style={{ minHeight: '800px' }}>Conditions Page</div>
+        <Conditions />
     </Layout>
 )
 
-export default Home
+export default ConditionsPage

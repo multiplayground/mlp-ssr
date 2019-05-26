@@ -3,6 +3,7 @@ import Button from '../components/Button'
 import Text from '../components/Text'
 import ProjectTile from './ProjectTile'
 import { IProjectList } from '../api/projectList'
+import Link from 'next/link'
 
 const Home = (props: IProjectList) => {
     const projectList = props.results.map((item: any) => {
@@ -29,12 +30,16 @@ const Home = (props: IProjectList) => {
                     Те кто работает остаются в проекте, остальные вылетают
                 </Text>
                 <BtnWrapper>
-                    <Button color="info" size="large" roundCorner>
-                        Начать
-                    </Button>
-                    <Button color="white" size="large" roundCorner>
-                        Условия
-                    </Button>
+                    <Link href="/project-list">
+                        <Button color="info" size="large" roundCorner>
+                            Проекты
+                        </Button>
+                    </Link>
+                    <Link href="/conditions">
+                        <Button color="white" size="large" roundCorner>
+                            Условия
+                        </Button>
+                    </Link>
                 </BtnWrapper>
             </GreetingWrapper>
             <TilesWrapper>
